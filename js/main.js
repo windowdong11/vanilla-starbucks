@@ -44,9 +44,17 @@ window.addEventListener('scroll', _.throttle(()=>{
 
 // title 커피 순차적으로 보여지는 애니메이션
 const fadeELs = document.querySelectorAll('.fade-in')
-fadeELs.forEach((fadeEl, index) => {
+fadeELs.forEach((fadeEl, index) => {    
     gsap.to(fadeEl, 1, {
         delay: (index + 1) * 0.7, // gsap option, 0.7초 마다 실행
         opacity: 1 // element style
     })
+})
+
+// Notice swiper
+
+new Swiper('.notice-line .swiper-container', {
+    direction: 'vertical',
+    autoplay: true,
+    loop: true
 })
