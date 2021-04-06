@@ -1,0 +1,346 @@
+/* COMMON (공통) */
+body {
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  font-family: 'Nanum Gothic', sans-serif;
+  height: 3000px;
+}
+
+img {
+  display: block; /* inline요소의 baseline으로 인한 공백 제거 */
+}
+
+a {
+  text-decoration: none;
+}
+
+.inner {
+  width: 1100px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.btn {
+  display: block;
+  width: 130px;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: .4s;
+}
+
+.btn:hover {
+  background-color: #333;
+  color: white;
+}
+
+.btn.btn--reverse {
+  background-color: #333;
+  color: white;
+}
+.btn.btn--reverse:hover {
+  background-color: transparent;
+  color: #333;
+}
+.btn.btn--brown {
+  color: #592B18;
+  border-color: #592B18;
+}
+.btn.btn--brown:hover {
+  color: white;
+  background-color: #592B18;
+}
+.btn.btn--gold {
+  color: #D9AA8A;
+  border-color: #D9AA8A;
+}
+.btn.btn--gold:hover {
+  color: white;
+  background-color: #D9AA8A;
+}
+.btn.btn--white {
+  color: white;
+  border-color: white;
+}
+.btn.btn--white:hover {
+  color: #333;
+  background-color: white;
+}
+
+/* HEADER */
+header {
+  background-color: #f6f5f0;
+  border-bottom: 1px solid #c8c8c8;
+  /* 
+  !! position : fixed, absolute & width: auto 의 경우 !!
+    요소의 넓이를 최소한으로 사용하려고 함
+    따라서, width를 요소 넓이의 최소보다 많이 사용하려는 경우
+    직접 width 값을 사용해야 한다.
+    -> block요소는 기본적으로 최대한 늘어나려는 성질을 갖고 있으나,
+    fixed, absolute를 지정하는 경우 그렇지 않다.
+  */
+  position: fixed;
+  top : 0;
+  width: 100%;
+  z-index: 9;
+}
+
+header > .inner {
+  height: 120px;
+}
+
+header .logo {
+  height: 75px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+header .sub-menu {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  display: flex;
+}
+
+header .sub-menu ul {
+  display: flex;
+  font-family: Arial, sans-serif;
+}
+
+header .sub-menu ul.menu li {
+  position: relative;
+}
+
+header .sub-menu ul.menu li::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background-color: #e5e5e5; /* 밝은 회색 */
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto 0;
+}
+
+header .sub-menu ul.menu li:first-child:before {
+  /* content: none; */
+  display: none;
+}
+
+header .sub-menu ul.menu li a {
+  font-size: 12px;
+  padding: 11px 16px;
+  display: block;
+
+  color: #656565;
+}
+
+header .sub-menu ul.menu li a:hover {
+  color: #000;
+}
+
+header .sub-menu .search {
+  height: 34px;
+  position: relative;
+}
+
+header .sub-menu .search input {
+  height: 34px;
+  width: 36px;
+  padding: 4px 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: none;
+
+  background-color: #fff; /* white */
+  color: #777; /* gray */
+
+  transition: width 0.4s;
+}
+
+header .sub-menu .search input:focus {
+  width: 100px;
+  border-color: #669900; /* starbucks green */
+}
+
+header .sub-menu .search .material-icons {
+  position: absolute;
+  height: 24px;
+  right: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  transition: opacity .4s;
+}
+
+header .sub-menu .search input:focus + .material-icons {
+  opacity: 0;
+}
+
+header .main-menu {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+header .main-menu .item {
+}
+
+header .main-menu .item .item__name {
+  padding : 10px 20px 34px 20px;
+  font-family: Arial, sans-serif;
+}
+
+header .main-menu .item:hover .item__name {
+  background-color: #2c2a29;
+  color: #669900;
+  border-radius: 6px 6px 0 0;
+}
+
+header .main-menu .item .item__contents {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+header .main-menu .item:hover .item__contents {
+  display: block;
+}
+
+header .main-menu .item .item__contents .contents__menu {
+  background-color: #2c2a29;
+  height: 200px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul {
+  display: flex;
+  color: white;
+  padding: 20px 0;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li {
+  width: 220px;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+  padding: 3px 0 12px 0;
+  font-size: 14px;
+  color: #fff;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+  padding: 5px 0;
+  font-size: 12px;
+  color: #999;
+  cursor: pointer;
+}
+
+header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+  color: #669900;
+}
+
+header .main-menu .item .item__contents .contents__texture {
+  background-image: url("../images/main_menu_pattern.jpg");
+  padding: 26px 0;
+  font-size: 12px;
+  height: 100px;
+}
+
+header .main-menu .item .item__contents .contents__texture h4 {
+  color: #999;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+header .main-menu .item .item__contents .contents__texture p {
+  color: #669900;
+  margin: 4px 0 14px;
+}
+
+header .badges {
+  position: absolute;
+  top: 132px;
+  right: 10px;
+}
+
+header .badges .badge {
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header .badges .badge:hover {
+  cursor: pointer;
+}
+
+/* VISUAL */
+
+.visual {
+  margin-top: 120px; /*header height*/
+  background-image: url("../images/visual_bg.jpg");
+  background-position: center;
+}
+
+.visual .inner {
+  height: 646px;
+}
+
+.visual /*.inner*/ .title {
+  position: absolute;
+  top: 88px;
+  left: -10px;
+}
+
+.visual .title .btn {
+  position: absolute;
+  top: 259px;
+  left: 173px;
+}
+
+.visual .cup1.image{
+  position: absolute;
+  bottom: 0;
+  right: -47px;
+}
+
+.visual .cup1.text{
+  position: absolute;
+  top: 38px;
+  right: 171px;
+}
+
+.visual .cup2.image{
+  position: absolute;
+  bottom: 0;
+  right: 162px;
+}
+
+.visual .cup2.text{
+  position: absolute;
+  top: 321px;
+  right: 416px;
+}
+
+.visual .spoon {
+  position: absolute;
+  bottom: 0;
+  left: 275px;
+}
+
+.visual .fade-in {
+  opacity: 0;
+}
